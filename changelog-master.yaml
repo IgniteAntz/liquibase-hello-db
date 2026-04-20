@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: changelogs/01-event-type.yaml
+  - include:
+      file: changelogs/02-event.yaml
+  - include:
+      file: changelogs/03-activity.yaml

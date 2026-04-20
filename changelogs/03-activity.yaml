@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-activity-table
+      author: antz
+      changes:
+        - createTable:
+#            schemaName: test
+            tableName: ACTIVITY
+            columns:
+              - column:
+                  name: ACTIVITY_ID
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: PRIMARY_REPRESENTATIVE_ID
+                  type: int
+              - column:
+                  name: EVENT_ID
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_activity_event
+                    references: EVENT(EVENT_ID)
+              - column:
+                  name: ACTIVITY_NAME
+                  type: varchar(255)

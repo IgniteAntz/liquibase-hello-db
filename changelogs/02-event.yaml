@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-event-table
+      author: antz
+      changes:
+        - createTable:
+#            schemaName: test
+            tableName: EVENT
+            columns:
+              - column:
+                  name: EVENT_ID
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: EVENT_TYPE_ID
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_event_type
+                    references: EVENT_TYPE(EVENT_TYPE_ID)
+              - column:
+                  name: CONSENT_FORM_ID
+                  type: int
+              - column:
+                  name: EVENT_NAME
+                  type: varchar(255)
+              - column:
+                  name: EVENT_DESCRIPTION
+                  type: varchar(1000)
+              - column:
+                  name: EVENT_DATE
+                  type: date
+              - column:
+                  name: EVENT_TIME
+                  type: time

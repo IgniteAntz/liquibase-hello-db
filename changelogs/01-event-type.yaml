@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-event-type-table
+      author: antz
+      changes:
+        - createTable:
+#            schemaName: test
+            tableName: EVENT_TYPE
+            columns:
+              - column:
+                  name: EVENT_TYPE_ID
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: EVENT_TYPE_NAME
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
